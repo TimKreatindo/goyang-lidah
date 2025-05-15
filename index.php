@@ -54,7 +54,8 @@ include 'application/third_party/env.php';
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+$env = getenv('ENVIRONMENT');
+define('ENVIRONMENT', $env);
 
 /*
  *---------------------------------------------------------------

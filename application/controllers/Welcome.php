@@ -22,4 +22,60 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+
+
+
+	
+	public function midtrans()
+	{
+		$this->load->view('midtrans');
+	}
+	public function midtrans_checkout(){
+		$transaction_details = array(
+			'order_id' => rand(),
+			'gross_amount' => 150000, // no decimal allowed for creditcard
+		);
+
+		$item_details = array(
+			[
+				'id' => 'a1',
+				'price' => 50000,
+				'quantity' => 2,
+				'name' => "Apple"
+			],
+			[
+				'id' => 'a2',
+				'price' => 25000,
+				'quantity' => 2,
+				'name' => "Orange"
+			],
+		);
+
+		$customer_details = array(
+			'first_name'    => "Andri",
+			'last_name'     => "Litani",
+			'email'         => "didikarpuz@gmail.com",
+			'phone'         => "081122334455",
+			'shipping_address' => [
+				'address'       => "Manggis 90",
+				'city'          => "Jakarta",
+				'postal_code'   => "16601",
+			]
+		);
+		
+		$params = array(
+			'transaction_details' => $transaction_details,
+			'customer_details' => $customer_details,
+			'item_details' => $item_details,
+		);
+
+		$this->midtrans->generate_link_checkout($params);
+	}
+	public function after_payment(){
+		
+	}
+	public function check_payment(){
+		
+	}
 }

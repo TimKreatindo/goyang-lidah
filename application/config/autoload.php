@@ -134,8 +134,5 @@ $autoload['language'] = array();
 */
 $autoload['model'] =
     array(
-        'Master_user_model' => 'master_user',
-        'App_model' => 'app',
-        'Datatable_model' => 'datatable',
-        'Client_model' => 'client'
+        'Midtrans_model' => 'midtrans',
     );
